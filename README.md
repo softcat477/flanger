@@ -1,22 +1,20 @@
-MUMT 618 Homework3
-
-Folder structure
-- flanger.cpp
-- stk/
-- README
+```
++flanger.cpp
++stk/
++README.md
+```
 
 Compile:
-    g++ -std=c++11 -o flanger -Istk/include/ -Lstk/src/ flanger.cpp -lstk
-        or
-    sh comp.sh
+`g++ -std=c++11 -o flanger -Istk/include/ -Lstk/src/ flanger.cpp -lstk`
+    or
+`sh comp.sh`
 
-Usage:
-    ./flanger <filename>.wav
+Usage:  `./flanger <filename>.wav`
 
-Output:
-    <filename>_flanger.wav
+Output:`<filename>_flanger.wav`
 
 Parameters:
+```
     Flanger equations:
         y[n] = x[n] + gx[n-M[n]]
         M[n] = M0(1 + Asin(2pifnT))
@@ -25,3 +23,4 @@ Parameters:
     float   delay = M0/sr ,     The average delay in sec
     float   lfo_sweep = A,      The maximum delay swing
     float   lfo_speed = f,      The flanger rate(hz)
+```
