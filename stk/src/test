@@ -1,0 +1,79 @@
+./Stk.cpp:228:// StkFrames definitions
+./Stk.cpp:231:StkFrames :: StkFrames( unsigned int nFrames, unsigned int nChannels )
+./Stk.cpp:241:      std::string error = "StkFrames: memory allocation error in constructor!";
+./Stk.cpp:250:StkFrames :: StkFrames( const StkFloat& value, unsigned int nFrames, unsigned int nChannels )
+./Stk.cpp:259:      std::string error = "StkFrames: memory allocation error in constructor!";
+./Stk.cpp:269:StkFrames :: ~StkFrames()
+./Stk.cpp:274:StkFrames :: StkFrames( const StkFrames& f )
+./Stk.cpp:282:StkFrames& StkFrames :: operator= ( const StkFrames& f )
+./Stk.cpp:294:void StkFrames :: resize( size_t nFrames, unsigned int nChannels )
+./Stk.cpp:305:      std::string error = "StkFrames::resize: memory allocation error!";
+./Stk.cpp:313:void StkFrames :: resize( size_t nFrames, unsigned int nChannels, StkFloat value )
+./Stk.cpp:320:StkFrames& StkFrames::getChannel(unsigned int sourceChannel,StkFrames& destinationFrames, unsigned int destinationChannel) const
+./Stk.cpp:325:    error << "StkFrames::getChannel invalid sourceChannel (" << sourceChannel << ")";
+./Stk.cpp:330:    error << "StkFrames::getChannel invalid destinationChannel (" << destinationChannel << ")";
+./Stk.cpp:335:    error << "StkFrames::getChannel destination.frames() < frames()";
+./Stk.cpp:351:void StkFrames::setChannel(unsigned int destinationChannel, const stk::StkFrames &sourceFrames,unsigned int sourceChannel)
+./Stk.cpp:356:    error << "StkFrames::setChannel invalid sourceChannel (" << sourceChannel << ")";
+./Stk.cpp:361:    error << "StkFrames::setChannel invalid channel (" << destinationChannel << ")";
+./Stk.cpp:366:    error << "StkFrames::setChannel sourceFrames.frames() != frames()";
+./Stk.cpp:380:StkFloat StkFrames :: interpolate( StkFloat frame, unsigned int channel ) const
+./Stk.cpp:385:    error << "StkFrames::interpolate: invalid frame (" << frame << ") or channel (" << channel << ") value!";
+./RtWvIn.cpp:15:    that takes an StkFrames object for multi-channel and/or
+./RtWvIn.cpp:44:    // I'm assuming that both the RtAudio and StkFrames buffers
+./RtWvIn.cpp:56:    // Copy data to the StkFrames container.
+./RtWvIn.cpp:148:StkFrames& RtWvIn :: tick( StkFrames& frames, unsigned int channel )
+./RtWvIn.cpp:153:    oStream_ << "RtWvIn::tick(): channel and StkFrames arguments are incompatible!";
+Binary file ./libstk.a matches
+./Guitar.cpp:73:      // Fill the StkFrames variable with the (possibly interpolated)
+./FileWvOut.cpp:12:    StkFrames object for multi-channel and/or multi-frame data.
+./FileWvOut.cpp:112:void FileWvOut :: tick( const StkFrames& frames )
+./FileWvOut.cpp:122:    oStream_ << "FileWvOut::tick(): incompatible channel value in StkFrames argument!";
+./RtWvOut.cpp:14:    that takes a reference to an StkFrames object for multi-channel
+./RtWvOut.cpp:49:    // I'm assuming that both the RtAudio and StkFrames buffers
+./RtWvOut.cpp:60:    // Copy data from the StkFrames container.
+./RtWvOut.cpp:168:void RtWvOut :: tick( const StkFrames& frames )
+./RtWvOut.cpp:172:    oStream_ << "RtWvOut::tick(): incompatible channel value in StkFrames argument!";
+./RtWvOut.cpp:198:    StkFrames *ins = (StkFrames *) &frames;
+./PitShift.cpp:53:StkFrames& PitShift :: tick( StkFrames& frames, unsigned int channel )
+./PitShift.cpp:57:    oStream_ << "PitShift::tick(): channel and StkFrames arguments are incompatible!";
+./PitShift.cpp:70:StkFrames& PitShift :: tick( StkFrames& iFrames, StkFrames& oFrames, unsigned int iChannel, unsigned int oChannel )
+./PitShift.cpp:74:    oStream_ << "PitShift::tick(): channel and StkFrames arguments are incompatible!";
+./FileWrite.cpp:711:void FileWrite :: write( StkFrames& buffer )
+./FileWrite.cpp:720:    oStream_ << "FileWrite::write(): number of channels in the StkFrames argument does not match that specified to open() function!";
+Binary file ./Release/FileRead.o matches
+Binary file ./Release/FileWrite.o matches
+./NRev.cpp:80:StkFrames& NRev :: tick( StkFrames& frames, unsigned int channel )
+./NRev.cpp:84:    oStream_ << "NRev::tick(): channel and StkFrames arguments are incompatible!";
+./NRev.cpp:99:StkFrames& NRev :: tick( StkFrames& iFrames, StkFrames& oFrames, unsigned int iChannel, unsigned int oChannel )
+./NRev.cpp:103:    oStream_ << "NRev::tick(): channel and StkFrames arguments are incompatible!";
+./InetWvOut.cpp:12:    reference to an StkFrames object for multi-channel and/or
+./InetWvOut.cpp:201:void InetWvOut :: tick( const StkFrames& frames )
+./InetWvOut.cpp:213:    oStream_ << "InetWvOut::tick(): incompatible channel value in StkFrames argument!";
+./JCRev.cpp:97:StkFrames& JCRev :: tick( StkFrames& frames, unsigned int channel )
+./JCRev.cpp:101:    oStream_ << "JCRev::tick(): channel and StkFrames arguments are incompatible!";
+./JCRev.cpp:116:StkFrames& JCRev :: tick( StkFrames& iFrames, StkFrames& oFrames, unsigned int iChannel, unsigned int oChannel )
+./JCRev.cpp:120:    oStream_ << "JCRev::tick(): channel and StkFrames arguments are incompatible!";
+./FileRead.cpp:8:    returned via an external StkFrames object
+./FileRead.cpp:732:void FileRead :: read( StkFrames& buffer, unsigned long startFrame, bool doNormalize )
+./FileRead.cpp:743:    oStream_ << "FileRead::read: StkFrames buffer size is zero ... no data read!";
+./FileRead.cpp:748:    oStream_ << "FileRead::read: StkFrames argument has incompatible number of channels!";
+./FileRead.cpp:764:  // Read samples into StkFrames data buffer.
+./InetWvIn.cpp:13:    the overloaded one that takes an StkFrames object for
+./InetWvIn.cpp:291:StkFrames& InetWvIn :: tick( StkFrames& frames, unsigned int channel )
+./InetWvIn.cpp:295:    oStream_ << "InetWvIn::tick(): channel and StkFrames arguments are incompatible!";
+./FileLoop.cpp:12:    the overloaded one that takes an StkFrames object for
+./FileLoop.cpp:202:StkFrames& FileLoop :: tick( StkFrames& frames, unsigned int channel)
+./FileLoop.cpp:215:    oStream_ << "FileLoop::tick(): channel and StkFrames arguments are incompatible!";
+./PRCRev.cpp:81:StkFrames& PRCRev :: tick( StkFrames& frames, unsigned int channel )
+./PRCRev.cpp:85:    oStream_ << "PRCRev::tick(): channel and StkFrames arguments are incompatible!";
+./PRCRev.cpp:100:StkFrames& PRCRev :: tick( StkFrames& iFrames, StkFrames& oFrames, unsigned int iChannel, unsigned int oChannel )
+./PRCRev.cpp:104:    oStream_ << "PRCRev::tick(): channel and StkFrames arguments are incompatible!";
+./FileWvIn.cpp:14:    the overloaded one that takes an StkFrames object for
+./FileWvIn.cpp:233:StkFrames& FileWvIn :: tick( StkFrames& frames, unsigned int channel)
+./FileWvIn.cpp:246:    oStream_ << "FileWvIn::tick(): channel and StkFrames arguments are incompatible!";
+./FreeVerb.cpp:184:StkFrames& FreeVerb::tick( StkFrames& frames, unsigned int channel )
+./FreeVerb.cpp:188:    oStream_ << "FreeVerb::tick(): channel and StkFrames arguments are incompatible!";
+./FreeVerb.cpp:203:StkFrames& FreeVerb::tick( StkFrames& iFrames, StkFrames &oFrames, unsigned int iChannel, unsigned int oChannel )
+./FreeVerb.cpp:207:    oStream_ << "FreeVerb::tick(): channel and StkFrames arguments are incompatible!";
+./SineWave.cpp:21:StkFrames SineWave :: table_;

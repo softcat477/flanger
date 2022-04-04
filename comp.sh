@@ -1,0 +1,1 @@
+g++ -std=c++11 -o flanger -Istk/include/ -Lstk/src/ flanger.cpp -lstk
